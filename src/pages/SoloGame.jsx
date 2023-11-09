@@ -64,7 +64,8 @@ export default function SoloGame() {
       setYwinner(yWinner + 1);
     }
     if (countTide == 0) {
-      setTide(tide);
+      setTide(true);
+      setCountWinner(countWinner + 1);
       console.log(tide);
     }
     console.log(count, countTide);
@@ -91,7 +92,21 @@ export default function SoloGame() {
 
   return (
     <div className="flex flex-col items-center justify-center gap-[64px] w-[370px] relative">
-      <p className=" text-[red]">TURN {xMode}</p>
+      {x || y || tide ? (
+        <Winner
+          count={count}
+          setCount={setCount}
+          x={x}
+          setX={setX}
+          y={y}
+          setY={setY}
+          setXmode={setXmode}
+          tide={tide}
+          setTide={setTide}
+          setCountTide={setCountTide}
+          className="absolute top-0"
+        />
+      ) : null}
       <header className="flex flex-row items-center justify-center gap-[60px]">
         <img src={logo} alt="" />
         {xMode === "odd" ? (
@@ -138,24 +153,11 @@ export default function SoloGame() {
             </button>
           );
         })}
-        {x || y ? (
-          <Winner
-            count={count}
-            setCount={setCount}
-            x={x}
-            setX={setX}
-            y={y}
-            setY={setY}
-            setXmode={setXmode}
-            tide={tide}
-            setTide={setTide}
-            className="absolute top-0"
-          />
-        ) : null}
+
         <button className="w-[96px] h-[64px] bg-[#31C3BD] gap-[20px] flex flex-row items-center justify-center rounded-[10px]">
           <p className="flex flex-col items-center leading-tight">
             X (YOU){" "}
-            <strong className="text-[20px] font-[Outfit] space-[1.25px] text-[#1A2A33]">
+            <strong className="text-[20px] font-[Outfit] tracking-[1.25px] text-[#1A2A33]">
               {xWInner}
             </strong>{" "}
           </p>
@@ -163,7 +165,7 @@ export default function SoloGame() {
         <button className="w-[96px] h-[64px] bg-[#A8BFC9] gap-[20px] flex flex-row items-center justify-center rounded-[10px]">
           <p className="flex flex-col items-center leading-tight">
             TIES{" "}
-            <strong className="text-[20px] font-[Outfit] space-[1.25px] text-[#1A2A33]">
+            <strong className="text-[20px] font-[Outfit] tracking-[1.25px] text-[#1A2A33]">
               {countWinner}
             </strong>{" "}
           </p>
@@ -171,7 +173,7 @@ export default function SoloGame() {
         <button className="w-[96px] h-[64px] bg-[#F2B137] gap-[20px] flex flex-row items-center justify-center rounded-[10px] ">
           <p className="flex flex-col items-center leading-tight">
             O (CPU){" "}
-            <strong className="text-[20px] font-[Outfit] space-[1.25px] text-[#1A2A33] ">
+            <strong className="text-[20px] font-[Outfit] tracking-[1.25px] text-[#1A2A33] ">
               {yWinner}
             </strong>{" "}
           </p>
