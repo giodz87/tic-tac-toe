@@ -96,7 +96,6 @@ export default function SoloGame() {
     <div className="flex flex-col items-center justify-center gap-[64px] w-[330px] relative md:gap-[20px]">
       {x || y || tide || reset ? (
         <Winner
-          count={count}
           setCount={setCount}
           x={x}
           setX={setX}

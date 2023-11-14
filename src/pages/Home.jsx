@@ -1,16 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import Otransparent from "../assets/icon-o-outline.svg";
-import Ocolor from "../assets/icon-o.svg";
-import restart from "../assets/icon-restart.svg";
-import Xoutline from "../assets/icon-x-outline.svg";
-import Xlight from "../assets/icon-x.svg";
-import logo from "../assets/logo.svg";
-import SoloGame from "./SoloGame";
-import { Link } from "react-router-dom";
-import Winner from "../components/Winner";
 
-export default function Home({ comingSoon, setComingSoon }) {
+import Xoutline from "../assets/icon-x-outline.svg";
+
+import logo from "../assets/logo.svg";
+
+import { Link } from "react-router-dom";
+
+export default function Home() {
   const [ticToc, setTicToc] = useState("Xoutline");
 
   return (
@@ -48,12 +46,7 @@ export default function Home({ comingSoon, setComingSoon }) {
           </p>
         </div>
         <div className="flex flex-col items-center justify-center gap-[16px]">
-          <button
-            onClick={() => {
-              setComingSoon(true);
-            }}
-            className="font-[Outfit] text-[16px] font-semibold  w-[327px] h-[56px] bg-[#F2B137] hover:bg-[#FFC860] rounded-[15px] cursor-pointer  shadow-yellow md:w-[460px] md:h-[67px] md:text-[20px] flex flex-row items-center justify-center gap-[10px] pl-[40px]"
-          >
+          <button className="font-[Outfit] text-[16px] font-semibold  w-[327px] h-[56px] bg-[#F2B137] hover:bg-[#FFC860] rounded-[15px] cursor-pointer  shadow-yellow md:w-[460px] md:h-[67px] md:text-[20px] flex flex-row items-center justify-center gap-[10px] pl-[40px]">
             NEW GAME (VS CPU){" "}
             <p className="text-[12px] text-[red]">coming soon</p>
           </button>

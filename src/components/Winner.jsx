@@ -1,10 +1,8 @@
 import React from "react";
 import Ocolor from "../assets/icon-o.svg";
 import Xlight from "../assets/icon-x.svg";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 export default function Winner({
-  count,
   setCount,
   x,
   setX,
